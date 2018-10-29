@@ -16,15 +16,15 @@ public class HelloWorld{
             System.out.println("1. Borrow a book");
             System.out.println("2. Return a book and calculate fine");
             System.out.println("3. Exit this program");
-            int option = Integer.parseInt(in.nextLine());
+            int option = Integer.parseInt(in.nextLine().trim());
             switch(option){
                 case 1: {
                     System.out.println("Enter student name:");
-                    String name = in.nextLine();
+                    String name = in.nextLine().trim();
                     System.out.println("Enter name of book to be issued:");
-                    String bookName = in.nextLine();
+                    String bookName = in.nextLine().trim();
                     System.out.println("Enter date issued (yyyy-MM-dd):");
-                    String date = in.nextLine();
+                    String date = in.nextLine().trim();
                     Book book = isBookAvailable(bookName);
                     if(book==null){
                         System.out.println("Sorry, this book is either unavailable or doesn't exist!");
@@ -37,9 +37,9 @@ public class HelloWorld{
                 }
                 case 2: {
                     System.out.println("Enter student name:");
-                    String name = in.nextLine();
+                    String name = in.nextLine().trim();
                     System.out.println("Enter date returned (yyyy-MM-dd):");
-                    String date = in.nextLine();
+                    String date = in.nextLine().trim();
                     Book book = bookIssuedByStudent(name);
                     if(book==null){
                         System.out.println("That student doesn't seem to have issued a book!");
@@ -58,18 +58,16 @@ public class HelloWorld{
         }
     }
     static Book isBookAvailable(String bookName){
-        System.out.println(bookName);
         Book book = null;
         for(int i=0; i<books.length; i++){
-            System.out.println(books[i].name);
-            if(books[i].name==bookName && books[i].issuedBy==null) book = books[i];
+            if(books[i].name.equals(bookName) && books[i].issuedBy==null) book = books[i];
         }
         return book;
     }
     static Book bookIssuedByStudent(String studentName){
         Book book = null;
         for(int i=0; i<books.length; i++){
-            if(books[i].issuedBy==studentName) book = books[i];
+            if(books[i].issuedBy.equals(studentName)) book = books[i];
         }
         return book;
     }
