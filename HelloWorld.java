@@ -1,3 +1,4 @@
+
 //assumption: books are issued for two weeks at a time
 //assumption: students issue books one at a time
 import java.util.*;
@@ -67,6 +68,7 @@ public class HelloWorld{
     static Book bookIssuedByStudent(String studentName){
         Book book = null;
         for(int i=0; i<books.length; i++){
+            if(books[i].issuedBy==null)continue;
             if(books[i].issuedBy.equals(studentName)) book = books[i];
         }
         return book;
