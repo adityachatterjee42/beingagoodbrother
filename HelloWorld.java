@@ -13,6 +13,7 @@ public class HelloWorld{
     public static void main(String []args){
         Scanner in = new Scanner(System.in);
         while(true){
+            System.out.println("-----------------------------------");
             System.out.println("What would you like to do?");
             System.out.println("1. Borrow a book");
             System.out.println("2. Return a book and calculate fine");
