@@ -14,6 +14,8 @@ public class HelloWorld{
         Scanner in = new Scanner(System.in);
         while(true){
             System.out.println("-----------------------------------");
+            printAvailableBooks();
+            System.out.println("-----------------------------------");
             System.out.println("What would you like to do?");
             System.out.println("1. Borrow a book");
             System.out.println("2. Return a book and calculate fine");
@@ -73,6 +75,19 @@ public class HelloWorld{
             if(books[i].issuedBy.equals(studentName)) book = books[i];
         }
         return book;
+    }
+    static void printAvailableBooks(){
+        System.out.println("Books available:")
+        for(int i=0; i<books.length; i++){
+            boolean issued;
+            if(books[i].issuedBy==null){
+                issued = false;
+            }
+            else{
+                issued = true;
+            }
+            System.out.println(books[i].name+"\t"+books[i].author+"\t"+books[i].genre+"\t"+"Issued: "+issued);
+        }
     }
     
 }
