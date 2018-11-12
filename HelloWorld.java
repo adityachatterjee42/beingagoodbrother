@@ -5,10 +5,10 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 public class HelloWorld{
     static Book[] books = {
-            new Book("The Adventures of Tom Sawyer", "Classic Fiction"), 
-            new Book("The Adventures of Huckleberry Finn", "Classic Fiction"),
-            new Book("Tintin in Tibet", "Comics"),
-            new Book("Tintin in America", "Comics")
+            new Book("The Adventures of Tom Sawyer", "Mark Twain", "Classic Fiction"), 
+            new Book("The Adventures of Huckleberry Finn", "Mark Twain", "Classic Fiction"),
+            new Book("Tintin in Tibet", "Herge", "Comics"),
+            new Book("Tintin in America", "Herge", "Comics")
         };
     public static void main(String []args){
         Scanner in = new Scanner(System.in);
@@ -79,11 +79,13 @@ public class HelloWorld{
 
 class Book {
     String name;
+    String author;
     String genre;
     Date dateIssued;
     String issuedBy;
-    Book(String name, String genre){
+    Book(String name, String author, String genre){
         this.name = name;
+        this.author = author;
         this.genre = genre;
         this.issuedBy=null;
     }
