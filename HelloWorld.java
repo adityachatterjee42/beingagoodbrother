@@ -1,9 +1,10 @@
 
 //assumption: books are issued for two weeks at a time
 //assumption: students issue books one at a time
+//assumption: there is only one copy of each book
 import java.util.*;
 import java.text.SimpleDateFormat;
-public class HelloWorld{
+public class Main{
     static Book[] books = {
             new Book("The Adventures of Tom Sawyer", "Mark Twain", "Classic Fiction"), 
             new Book("The Adventures of Huckleberry Finn", "Mark Twain", "Classic Fiction"),
@@ -77,7 +78,7 @@ public class HelloWorld{
         return book;
     }
     static void printAvailableBooks(){
-        System.out.println("Books available:")
+        System.out.println("Books available:");
         for(int i=0; i<books.length; i++){
             boolean issued;
             if(books[i].issuedBy==null){
@@ -86,7 +87,7 @@ public class HelloWorld{
             else{
                 issued = true;
             }
-            System.out.println(books[i].name+"\t"+books[i].author+"\t"+books[i].genre+"\t"+"Issued: "+issued);
+            System.out.println(books[i].name+" by "+books[i].author+", "+books[i].genre+", "+"Issued: "+issued);
         }
     }
     
